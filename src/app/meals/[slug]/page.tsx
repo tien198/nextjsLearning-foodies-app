@@ -7,7 +7,7 @@ export default async function Post({ params }: Props) {
     
     return (
         <div>
-            {slug}
+            <h1>{slug}</h1>
         </div>
     )
 }

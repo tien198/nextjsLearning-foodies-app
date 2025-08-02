@@ -1,5 +1,7 @@
 export default function Meals() {
     return (
-        <div>Meals</div>
+        <div>
+            <h1>Meals</h1>
+        </div>
     )
 }

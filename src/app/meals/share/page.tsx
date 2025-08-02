@@ -1,5 +1,7 @@
 export default function Share() {
     return (
-        <div>Share</div>
+        <div>
+            <h1>Share</h1>
+        </div>
     )
 }
