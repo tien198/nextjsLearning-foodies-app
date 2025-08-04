@@ -3,9 +3,16 @@ import styles from './page.module.css'
 import MealsGrid from '@/components/meals/MealsGrid'
 import { getMeals } from '../../../lib/mealsDbb'
 import type Meal from '@/types/Meal'
+import { Suspense } from 'react'
 
-export default async function Meals() {
+
+async function Meals() {
     const meals = await getMeals() as Meal[]
+
+    return <MealsGrid meals={meals} />
+}
+
+export default function MealsPage() {
     return (
         <>
             <header className={styles['header']}>
@@ -21,7 +28,9 @@ export default async function Meals() {
                 </p>
             </header>
             <main className={styles['main']}>
-                <MealsGrid meals={meals} />
+                <Suspense fallback={<p className={styles['loading']}>Fetching meals ...</p>}>
+                    <Meals />
+                </Suspense>
             </main>
         </>
     )
