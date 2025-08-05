@@ -4,5 +4,6 @@ export default interface Meal {
     slug: string;
     image: string;
     summary: string;
-    creator: string
+    creator: string;
+    instructions: string
 }
