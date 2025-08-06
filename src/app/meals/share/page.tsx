@@ -3,6 +3,7 @@
 import ImagePicker from '@/components/meals/ImagePicker';
 import classes from './page.module.css';
 import { shareMeal } from '@/lib/action';
+import ShareMealFormSubmit from '@/components/meals/ShareMealFormSubmit';
 
 export default function ShareMealPage() {
 
@@ -19,20 +20,20 @@ export default function ShareMealPage() {
                     <div className={classes['row']}>
                         <p>
                             <label htmlFor="name">Your name</label>
-                            <input type="text" id="name" name="name"  />
+                            <input type="text" id="name" name="name" />
                         </p>
                         <p>
                             <label htmlFor="email">Your email</label>
-                            <input type="email" id="email" name="email"  />
+                            <input type="email" id="email" name="email" />
                         </p>
                     </div>
                     <p>
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="title" name="title"  />
+                        <input type="text" id="title" name="title" />
                     </p>
                     <p>
                         <label htmlFor="summary">Short Summary</label>
-                        <input type="text" id="summary" name="summary"  />
+                        <input type="text" id="summary" name="summary" />
                     </p>
                     <p>
                         <label htmlFor="instructions">Instructions</label>
@@ -40,12 +41,12 @@ export default function ShareMealPage() {
                             id="instructions"
                             name="instructions"
                             rows={10}
-                            
+
                         ></textarea>
                     </p>
                     <ImagePicker label='image' name='image' />
                     <p className={classes['actions']}>
-                        <button type="submit">Share Meal</button>
+                        <ShareMealFormSubmit />
                     </p>
                 </form>
             </main>

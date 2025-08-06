@@ -2,6 +2,7 @@
 
 import type Meal from "@/types/Meal"
 import { saveMeal } from "./mealsDbb"
+import { redirect } from "next/navigation"
 
 export async function shareMeal(formData: FormData) {
 
@@ -14,4 +15,5 @@ export async function shareMeal(formData: FormData) {
         creator_email: formData.get('email')?.toString() || '',
     }
     await saveMeal(meal as Meal)
+    redirect('/meals')
 }
