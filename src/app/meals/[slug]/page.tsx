@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './page.module.css'
-import { getMeal } from '../../../../lib/mealsDbb'
+import { getMeal } from '../../../lib/mealsDbb'
 import type Meal from '@/types/Meal'
 import { notFound } from 'next/navigation'
 

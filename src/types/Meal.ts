@@ -2,7 +2,7 @@ export default interface Meal {
     id: string;
     title: string;
     slug: string;
-    image: string;
+    image: string | File;
     summary: string;
     creator: string;
     creator_email: string;

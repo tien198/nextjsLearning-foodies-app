@@ -11,7 +11,7 @@ export default function MealItem({ title, slug, image, summary, creator }: Props
         <article className={styles['meal']}>
             <header>
                 <div className={styles['image']}>
-                    <Image src={image} alt={title} fill />
+                    <Image src={String(image)} alt={title} fill />
                 </div>
                 <div className={styles['headerText']}>
                     <h2>{title}</h2>
