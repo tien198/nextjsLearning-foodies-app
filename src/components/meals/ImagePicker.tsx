@@ -16,8 +16,8 @@ export default function ImagePicker({ label, name }: Props) {
 
     const handlePickImage = () => imageInput.current!.click()
 
-    const reader = new FileReader()
     const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
+        const reader = new FileReader()
         const file = e.target.files![0]
         if (!file)
             return
