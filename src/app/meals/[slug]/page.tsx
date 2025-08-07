@@ -5,7 +5,7 @@ import type Meal from '@/types/Meal'
 import { notFound } from 'next/navigation'
 
 type Props = {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 export default async function Post({ params }: Props) {
@@ -18,7 +18,7 @@ export default async function Post({ params }: Props) {
     return <>
         <header className={styles['header']}>
             <div className={styles['image']}>
-                <Image src={meal.image} alt={meal.title} fill />
+                <Image src={meal.image as string} alt={meal.title} fill />
             </div>
             <div className={styles['headerText']}>
                 <h1>{meal.title}</h1>
