@@ -3,6 +3,7 @@
 import type Meal from "@/types/Meal"
 import { saveMeal } from "./mealsDbb"
 import { redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 
 function isInvalidText(text?: string) {
     return !text || text.trim() === ''
@@ -37,5 +38,7 @@ export async function shareMeal(prevState: ActionData, formData: FormData): Prom
         }
 
     await saveMeal(meal as Meal)
+    
+    revalidatePath('/meals')
     redirect('/meals')
 }

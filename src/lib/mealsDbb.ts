@@ -9,7 +9,7 @@ import { resolve } from 'path'
 const db = sql('meals.db')
 
 export async function getMeals() {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // await new Promise((resolve) => setTimeout(() => resolve(null), 2000))
 
     // throw new Error('Database connection failed')
     return db.prepare('SELECT * FROM meals').all()
@@ -36,7 +36,7 @@ export async function saveMeal(meal: Meal) {
 
     meal.image = imagePath
 
-    await new Promise((resolve) => setTimeout(() => resolve(null), 3000));
+    // await new Promise((resolve) => setTimeout(() => resolve(null), 2000))
 
     db.prepare(`
         INSERT INTO  meals 
