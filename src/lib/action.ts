@@ -8,7 +8,10 @@ function isInvalidText(text?: string) {
     return !text || text.trim() === ''
 }
 
-export async function shareMeal(formData: FormData) {
+type ActionData = {
+    message: string | null
+}
+export async function shareMeal(prevState: ActionData, formData: FormData): Promise<ActionData> {
 
     const meal: Partial<Meal> = {
         title: formData.get('title')?.toString() || '',
@@ -28,7 +31,10 @@ export async function shareMeal(formData: FormData) {
         || !meal.image
         || (meal.image as File).size === 0
     )
-        throw new Error('InvalidInput')
+        // throw new Error('InvalidInput')
+        return {
+            message: 'invalid input'
+        }
 
     await saveMeal(meal as Meal)
     redirect('/meals')
