@@ -3,16 +3,25 @@ import styles from './page.module.css'
 import { getMeal } from '../../../lib/mealsDbb'
 import type Meal from '@/types/Meal'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 
 type Props = {
-    params: Promise<{ slug: string }>
+    params: Promise<{ slug: string }>,
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const meal = await getMeal((await params).slug)
+    return {
+        title: meal.title,
+        description: meal.summary,
+    }
 }
 
 export default async function Post({ params }: Props) {
     const { slug } = await params
     const meal = await getMeal(slug) as Meal
 
-    if(!meal)
+    if (!meal)
         notFound()
     meal.instructions = meal.instructions.replace(/\n/g, '<br/>')
     return <>

@@ -8,15 +8,15 @@ import { resolve } from 'path'
 
 const db = sql('meals.db')
 
-export async function getMeals() {
+export async function getMeals(): Promise<Meal[]> {
     // await new Promise((resolve) => setTimeout(() => resolve(null), 2000))
 
     // throw new Error('Database connection failed')
-    return db.prepare('SELECT * FROM meals').all()
+    return db.prepare('SELECT * FROM meals').all() as Meal[]
 }
 
-export async function getMeal(slug: string) {
-    return db.prepare('SELECT * FROM meals WHERE slug=?').get(slug)
+export async function getMeal(slug: string): Promise<Meal> {
+    return db.prepare('SELECT * FROM meals WHERE slug=?').get(slug) as Meal
 }
 
 export async function saveMeal(meal: Meal) {
