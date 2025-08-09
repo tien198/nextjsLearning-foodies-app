@@ -4,7 +4,19 @@ import MealsGrid from '@/components/meals/MealsGrid'
 import { getMeals } from '../../lib/mealsDbb'
 import type Meal from '@/types/Meal'
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+    title: 'Title',
+    description: 'Summary page content in range 150 -160 words',
+    robots: 'index, follow',
+    openGraph: {
+        title: 'title page',
+        description: 'ảnh hưởng CTR, gián tiếp tác động SEO',
+        images: [],
+        url: 'this page url'
+    }
+}
 
 async function Meals() {
     const meals = await getMeals() as Meal[]
